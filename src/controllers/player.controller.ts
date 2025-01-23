@@ -14,10 +14,8 @@ export const getPlayers = async (req: Request, res: Response): Promise<void> => 
 };
 
 export const addPlayer = async (req: Request, res: Response): Promise<void> => {
-  console.log("AQUI")
   try {
     const { name, groupId, points } = req.body
-    console.log("Name")
     const player = await playerService.addPlayer(name, groupId, points);
     res.status(200).json({ data: player });
   } catch (error) {

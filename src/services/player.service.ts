@@ -16,7 +16,6 @@ export class PlayerService {
    * @returns O player recém-criado.
    */
   async addPlayer(name: string, groupId: number, points: number): Promise<Player> {
-    console.log("PLAYER")
     return await Player.create({ name, groupId, points });
   }
 }
