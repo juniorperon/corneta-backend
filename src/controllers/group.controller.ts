@@ -24,7 +24,6 @@ export const addGroup = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name } = req.body;
 
-    // Validação básica
     if (!name || typeof name !== "string" || !name.trim()) {
       res.status(400).json({ message: "O nome do grupo é obrigatório e deve ser uma string válida." });
       return;

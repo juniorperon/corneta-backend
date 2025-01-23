@@ -1,18 +1,22 @@
 import { Player } from '../models/player.model';
 
 export class PlayerService {
-  private players: Player[] = [];
-
-  async addPlayer(player: Player): Promise<Player> {
-    this.players.push(player);
-    return player;
-  }
-
+  /**
+   * Retorna todos os players do banco de dados.
+   */
   async getPlayers(): Promise<Player[]> {
-    return this.players;
+    return await Player.findAll();
   }
 
-  async getPlayersByGroup(groupId: string): Promise<Player[]> {
-    return this.players.filter(player => player.groupId === groupId);
+  /**
+   * Adiciona um novo player ao banco de dados.
+   * 
+   * @param name - O nome do player.
+   * @param groupId - O grupo do player.
+   * @returns O player recém-criado.
+   */
+  async addPlayer(name: string, groupId: number, points: number): Promise<Player> {
+    console.log("PLAYER")
+    return await Player.create({ name, groupId, points });
   }
 }

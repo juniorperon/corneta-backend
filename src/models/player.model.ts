@@ -5,7 +5,7 @@ interface PlayerAttributes {
   id: number;
   name: string;
   points: number;
-  groupId: string;
+  groupId: number;
 }
 
 interface PlayerCreationAttributes extends Optional<PlayerAttributes, "id"> { }
@@ -16,7 +16,7 @@ export class Player extends Model<PlayerAttributes, PlayerCreationAttributes>
   public id!: number;
   public name!: string;
   public points!: number;
-  public groupId!: string;
+  public groupId!: number;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -35,7 +35,7 @@ Player.init(
     },
     points: {
       type: DataTypes.INTEGER,
-      defaultValue: 0, // Por padrão, 0 pontos
+      defaultValue: 0,
     },
     groupId: {
       type: DataTypes.INTEGER,
