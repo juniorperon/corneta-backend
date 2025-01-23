@@ -1,4 +1,3 @@
-// src/services/group.service.ts
 import Group from "../models/group.model";
 
 export class GroupService {

@@ -1,4 +1,3 @@
-// src/controllers/group.controller.ts
 import { Request, Response } from "express";
 import { GroupService } from "../services/group.service";
 
