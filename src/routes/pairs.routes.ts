@@ -1,4 +1,3 @@
-// src/routes/pairs.routes.ts
 import { Router } from 'express';
 import { registerPairs, getPairs } from '../controllers/pairs.controller';
 

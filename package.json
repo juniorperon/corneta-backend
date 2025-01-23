@@ -3,24 +3,38 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts"
+    "start": "node --loader ts-node/esm src/server.ts",
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "typeorm": "typeorm-ts-node-esm",
+    "migration:generate": "typeorm-ts-node-esm migration:generate src/migrations -d src/config/database.ts",
+    "migration:run": "typeorm-ts-node-esm migration:run -d src/config/database.ts",
+    "migration:create": "typeorm-ts-node-esm migration:create src/migrations",
+    "migration:revert": "typeorm-ts-node-esm migration:revert -d src/config/database.ts",
+    "sequelize": "sequelize-cli"
   },
   "keywords": [],
-  "author": "",
+  "author": "peron",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5",
+    "sequelize-cli-typescript": "^3.2.0-c",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
     "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typeorm-ts-node-esm": "^0.3.20",
     "typescript": "^5.7.3"
   }
 }

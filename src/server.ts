@@ -1,7 +1,16 @@
-import app from './app';
+import app from "./app";
+import { connectDatabase } from "./config/database";
+import * as dotenv from "dotenv";
+import routes from "./routes";
 
-const PORT = process.env.PORT || 3000;
+dotenv.config();
+
+const PORT = process.env.PORT;
+
+connectDatabase();
+
+app.use("/api", routes);
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
