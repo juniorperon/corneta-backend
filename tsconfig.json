@@ -1,19 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "allowJs": true,
+    "outDir": "build",
+    "rootDir": "src",
     "strict": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true, /* Enables experimental support for ES7 decorators. */
+    "emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
+    /* Advanced Options */
+    "skipLibCheck": true, /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src/**/*"
-  ],
+    "src/**/*.ts"
+  ], // Inclua todas as pastas e arquivos necessários para o seu projeto
   "exclude": [
     "node_modules"
-  ]
+  ] // Certifique-se de que a pasta node_modules seja excluída
 }
