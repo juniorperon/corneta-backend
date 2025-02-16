@@ -5,7 +5,7 @@ const playerService = new PlayerService();
 
 export const getPlayers = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { groupId } = req.params;
+    const { groupId } = req.body;
     const players = await playerService.getPlayers(Number(groupId));
     res.status(200).json({ data: players });
   } catch (error) {
