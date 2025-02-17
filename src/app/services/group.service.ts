@@ -6,7 +6,7 @@ class GroupService {
     return await GroupRepository.getGroups();
   }
 
-  async createGroup(name: string): Promise<IGroup> {
+  async addGroup(name: string): Promise<IGroup> {
     if (!name) {
       throw new Error("O campo 'name' é obrigatório.");
     }
@@ -16,4 +16,4 @@ class GroupService {
   }
 }
 
-export default new GroupService();
+export default GroupService;
