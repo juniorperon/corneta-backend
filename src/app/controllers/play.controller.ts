@@ -8,7 +8,7 @@ const playService = new PlayService();
  */
 export const getPlays = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { groupId } = req.body;
+    const { groupId } = req.params;
 
     const plays = await playService.getPlays(Number(groupId));
     res.status(200).json({ data: plays });

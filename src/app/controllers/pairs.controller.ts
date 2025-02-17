@@ -18,7 +18,7 @@ export const addPair = async (req: Request, res: Response): Promise<void> => {
 
 export const getPairs = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { groupId } = req.body;
+    const { groupId } = req.params;
     const pairs = await pairService.getPairs(Number(groupId));
     res.status(200).json({ data: pairs });
   } catch (error) {

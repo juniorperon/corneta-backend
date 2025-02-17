@@ -6,7 +6,7 @@ import {
 
 const router = Router();
 
-router.get('/listPlays', getPlays);
+router.get('/listPlays/:groupId', getPlays);
 router.post('/addPlay', addPlay);
 
 export default router;

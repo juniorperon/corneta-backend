@@ -3,8 +3,8 @@ import { addPair, getPairByPlayerId, getPairs } from '../controllers/pairs.contr
 
 const router = Router();
 
-router.get('/listPairs', getPairs);
-router.get('/listPairByPlayerId', getPairByPlayerId);
+router.get('/listPairs/:groupId', getPairs);
+router.get('/listPairByPlayerId/:groupId', getPairByPlayerId);
 router.post('/addPair', addPair);
 
 export default router;
