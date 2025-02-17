@@ -1,3 +1,4 @@
+import { getPairByPlayerId } from './../controllers/pairs.controller';
 import PairRepository from '../repositories/PairRepository';
 import IPair from '../interfaces/IPair';
 
@@ -7,6 +8,18 @@ export class PairService {
    */
   async getPairs(groupId: number): Promise<IPair[]> {
     return await PairRepository.getPairs(groupId);
+  }
+
+  /**
+  * Adiciona um novo player ao banco de dados.
+  * 
+  * @param playerId - O id do player.
+  * @param groupId - O id do grupo.
+  * @param edition - O nome da edição.
+  * @returns A dupla recém-criada.
+  */
+  async getPairByPlayerId(groupId: number, playerId: number, edition: string): Promise<IPair[]> {
+    return await PairRepository.getPairByPlayerId(groupId, playerId, edition);
   }
 
   /**

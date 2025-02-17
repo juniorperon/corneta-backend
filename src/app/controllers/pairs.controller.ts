@@ -18,7 +18,7 @@ export const addPair = async (req: Request, res: Response): Promise<void> => {
 
 export const getPairs = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { groupId } = req.params;
+    const { groupId } = req.body;
     const pairs = await pairService.getPairs(Number(groupId));
     res.status(200).json({ data: pairs });
   } catch (error) {
@@ -26,3 +26,14 @@ export const getPairs = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: 'Erro ao obter as duplas.' });
   }
 };
+
+export const getPairByPlayerId = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { groupId, playerId, edition } = req.body;
+    const pair = await pairService.getPairByPlayerId(Number(groupId), Number(playerId), edition);
+    res.status(200).json({ data: pair });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erro ao obter as duplas por jogador.' });
+  }
+}
