@@ -1,6 +1,7 @@
 import Play from '../entities/Play';
 import IPlay from '../interfaces/IPlay';
 import { AppDataSource } from '../../database/datasource';
+import IPlayer from '../interfaces/IPlayer';
 
 const playRepository = AppDataSource.getRepository(Play);
 

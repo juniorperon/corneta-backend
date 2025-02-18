@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import {
   getPlays,
-  addPlay
+  addPlay,
 } from '../controllers/play.controller';
 
 const router = Router();

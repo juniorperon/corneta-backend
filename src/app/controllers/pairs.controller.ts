@@ -27,7 +27,7 @@ export const getPairs = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const getPairByPlayerId = async (req: Request, res: Response): Promise<void> => {
+export const verifyPair = async (req: Request, res: Response): Promise<void> => {
   try {
     const { groupId, playerId, edition } = req.body;
     const pair = await pairService.getPairByPlayerId(Number(groupId), Number(playerId), edition);

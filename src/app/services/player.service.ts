@@ -16,4 +16,15 @@ export class PlayerService {
   async addPlayer(name: string, groupId: number, points: number): Promise<IPlayer> {
     return await PlayerRepository.createPlayer({ name, groupId, points });
   }
+
+  /**
+   * atualiza pontos do jogador ao banco de dados.
+   * 
+   * @param playerId - O id do player.
+   * @param points - Os pontos a serem adicionados.
+   * @returns O player atualizado.
+   */
+  async addPointsToPlayer(playerId: number, points: number): Promise<IPlayer> {
+    return await PlayerRepository.addPointsToPlayer(playerId, points);
+  }
 }

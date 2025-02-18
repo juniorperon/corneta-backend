@@ -1,4 +1,3 @@
-import { getPairByPlayerId } from './../controllers/pairs.controller';
 import PairRepository from '../repositories/PairRepository';
 import IPair from '../interfaces/IPair';
 

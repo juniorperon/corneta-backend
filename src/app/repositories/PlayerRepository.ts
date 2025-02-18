@@ -17,4 +17,22 @@ const createPlayer = async (playerData: IPlayer): Promise<IPlayer> => {
   return await playerRepository.save(player);
 }
 
-export default { getPlayers, createPlayer };
+const addPointsToPlayer = async (playerId: number, points: number): Promise<IPlayer> => {
+
+  if (!points) {
+    throw new Error("Jogada inválida!");
+  }
+
+  const player = await playerRepository.findOne({ where: { id: playerId } });
+
+  if (!player) {
+    throw new Error("Jogador não encontrado!");
+  }
+
+  player.points += points;
+  await playerRepository.save(player);
+
+  return await playerRepository.save(player);
+};
+
+export default { getPlayers, createPlayer, addPointsToPlayer };

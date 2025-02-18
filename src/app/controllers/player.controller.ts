@@ -30,3 +30,18 @@ export const addPlayer = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+export const addPointsToPlayer = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const { playerId, points } = req.body;
+
+    if (!playerId || !points) {
+      return res.status(400).json({ message: "Parâmetros ausentes" });
+    }
+
+    const message = await playerService.addPointsToPlayer(Number(playerId), Number(points));
+    return res.status(200).json({ message });
+  } catch (error: any) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
